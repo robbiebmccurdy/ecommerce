@@ -89,6 +89,7 @@ li {
     text-align: center;
     border: none;
     color: #7342d6;
+    display: none;
 }
 .menu__backdrop {
     position: absolute;
@@ -101,6 +102,19 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 300ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu--open{
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 
 .menu__links {
@@ -116,6 +130,10 @@ li {
 .menu__link{
     font-size: 40px;
     color:white;
+}
+
+.menu__link:hover{
+    text-decoration: underline;
 }
 
 .btn__menu--close {
@@ -358,4 +376,16 @@ footer{
 
 .footer__link{
     padding: 0 8px;
+}
+
+/* Resizing for mobile/smaller screens */
+
+@media (max-width: 550px) {
+    .nav__links{
+        display: none;
+    }
+
+    .btn__menu{
+        display: block;
+    }
 }
